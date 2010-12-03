@@ -1,0 +1,7 @@
+.*\.log
+blib
+pm_to_blib
+.git
+\.old
+^Makefile$
+\.bak$
