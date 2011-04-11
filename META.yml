@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name:               Dancer-Plugin-MobileDevice
-version:            0.02
+version:            0.03
 abstract:           make a Dancer app mobile-aware
 author:
     - Alexis Sukrieh <sukria@sukria.net>
@@ -11,13 +11,13 @@ configure_requires:
 build_requires:
     ExtUtils::MakeMaker:  0
 requires:
-    Dancer:      1.2
+    Dancer:      1.3
     Test::More:  0
 no_index:
     directory:
         - t
         - inc
-generated_by:       ExtUtils::MakeMaker version 6.55_02
+generated_by:       ExtUtils::MakeMaker version 6.56
 meta-spec:
     url:      http://module-build.sourceforge.net/META-spec-v1.4.html
     version:  1.4
