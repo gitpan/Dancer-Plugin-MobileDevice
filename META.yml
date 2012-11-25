@@ -1,23 +1,35 @@
---- #YAML:1.0
-name:               Dancer-Plugin-MobileDevice
-version:            0.03
-abstract:           make a Dancer app mobile-aware
+---
+abstract: 'make a Dancer app mobile-aware'
 author:
-    - Alexis Sukrieh <sukria@sukria.net>
-license:            perl
-distribution_type:  module
-configure_requires:
-    ExtUtils::MakeMaker:  0
+  - 'Dancer Core Developers'
 build_requires:
-    ExtUtils::MakeMaker:  0
-requires:
-    Dancer:      1.3
-    Test::More:  0
-no_index:
-    directory:
-        - t
-        - inc
-generated_by:       ExtUtils::MakeMaker version 6.56
+  Dancer::Test: 0
+  File::Find: 0
+  File::Spec: 0
+  File::Temp: 0
+  Module::Build: 0.3601
+  Test::More: 0
+configure_requires:
+  ExtUtils::MakeMaker: 6.30
+  Module::Build: 0.3601
+dynamic_config: 0
+generated_by: 'Dist::Zilla version 4.300028, CPAN::Meta::Converter version 2.120921'
+license: perl
 meta-spec:
-    url:      http://module-build.sourceforge.net/META-spec-v1.4.html
-    version:  1.4
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+name: Dancer-Plugin-MobileDevice
+provides:
+  Dancer::Plugin::MobileDevice:
+    file: lib/Dancer/Plugin/MobileDevice.pm
+    version: 0.04
+requires:
+  Dancer: 0
+  Dancer::Plugin: 0
+  strict: 0
+  warnings: 0
+resources:
+  bugtracker: https://github.com/PerlDancer/Dancer-Plugin-MobileDevice/issues
+  homepage: http://perldancer.org/
+  repository: https://github.com/PerlDancer/Dancer-Plugin-MobileDevice
+version: 0.04

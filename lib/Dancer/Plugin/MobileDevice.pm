@@ -1,8 +1,11 @@
 package Dancer::Plugin::MobileDevice;
+{
+  $Dancer::Plugin::MobileDevice::VERSION = '0.04';
+}
+#ABSTRACT: make a Dancer app mobile-aware
 
 use strict;
 use warnings;
-our $VERSION = '0.03';
 
 use Dancer ':syntax';
 use Dancer::Plugin;
@@ -13,10 +16,10 @@ register 'is_mobile_device' => sub {
       ? 1 : 0;
 };
 
-
-before sub {
+hook before => sub {
     # If we don't have a mobile layout declared, do nothing.
     my $settings = plugin_setting || {};
+
     if (my $mobile_layout = $settings->{mobile_layout}) {
         # OK, remember the original layout setting (so we can restore it
         # after the request), and override it with the specified mobile layout.
@@ -27,26 +30,33 @@ before sub {
     }
 };
 
-after sub {
+hook after => sub {
     my $settings = plugin_setting || {};
     if ( $settings->{mobile_layout} && is_mobile_device() ) {
         setting layout => delete vars->{orig_layout};
     }
 };
 
-before_template sub {
+hook before_template => sub {
     my $tokens = shift;
     $tokens->{'is_mobile_device'} = is_mobile_device();
 };
 
-register_plugin;
+register_plugin for_versions => [ 1, 2 ];
 
 1;
+
 __END__
+
+=pod
 
 =head1 NAME
 
 Dancer::Plugin::MobileDevice - make a Dancer app mobile-aware
+
+=head1 VERSION
+
+version 0.04
 
 =head1 SYNOPSIS
 
@@ -82,7 +92,7 @@ the C<mobile_layout> setting for this plugin - for instance, add the following
 to your config file:
 
   plugins:
-    mobiledevice:
+    MobileDevice:
       mobile_layout: 'mobile'
 
 This means that, when C<template> is called to render a view, if the client is
@@ -93,21 +103,16 @@ You can of course still override this layout by supplying a layout option to the
 C<template> call in the usual way (see the L<Dancer> documentation for how to do
 this).
 
-=head1 AUTHOR
-
-Alexis Sukrieh, C<< <sukria at sukria.net> >>
-
 =head1 BUGS
 
 Please report any bugs or feature requests to
-L<http://github.com/sukria/Dancer-Plugin-MobileDevice/issues>
+L<http://github.com/PerlDancer/Dancer-Plugin-MobileDevice/issues>
 
 =head1 SUPPORT
 
 You can find documentation for this module with the perldoc command.
 
     perldoc Dancer::Plugin::MobileDevice
-
 
 You can also look for information at:
 
@@ -131,20 +136,20 @@ L<http://search.cpan.org/dist/Dancer-Plugin-MobileDevice/>
 
 =back
 
-
 =head1 ACKNOWLEDGEMENTS
 
 This plugin was initially written for an article of the Dancer advent
 calendar 2010.
 
-=head1 LICENSE AND COPYRIGHT
+=head1 AUTHOR
 
-Copyright 2010-2011 Alexis Sukrieh.
+Dancer Core Developers
 
-This program is free software; you can redistribute it and/or modify it
-under the terms of either: the GNU General Public License as published
-by the Free Software Foundation; or the Artistic License.
+=head1 COPYRIGHT AND LICENSE
 
-See http://dev.perl.org/licenses/ for more information.
+This software is copyright (c) 2010 by Alexis Sukrieh.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
 
 =cut
