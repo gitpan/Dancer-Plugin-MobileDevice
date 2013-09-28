@@ -1,6 +1,6 @@
 package Dancer::Plugin::MobileDevice;
 {
-  $Dancer::Plugin::MobileDevice::VERSION = '0.04';
+  $Dancer::Plugin::MobileDevice::VERSION = '0.05';
 }
 #ABSTRACT: make a Dancer app mobile-aware
 
@@ -56,7 +56,7 @@ Dancer::Plugin::MobileDevice - make a Dancer app mobile-aware
 
 =head1 VERSION
 
-version 0.04
+version 0.05
 
 =head1 SYNOPSIS
 
@@ -117,10 +117,6 @@ You can find documentation for this module with the perldoc command.
 You can also look for information at:
 
 =over 4
-
-=item * RT: CPAN's request tracker
-
-L<http://rt.cpan.org/NoAuth/Bugs.html?Dist=Dancer-Plugin-MobileDevice>
 
 =item * AnnoCPAN: Annotated CPAN documentation
 

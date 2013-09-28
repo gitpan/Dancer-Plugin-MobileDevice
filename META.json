@@ -4,7 +4,7 @@
       "Dancer Core Developers"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Dist::Zilla version 4.300028, CPAN::Meta::Converter version 2.120921",
+   "generated_by" : "Dist::Zilla version 4.300037, CPAN::Meta::Converter version 2.120921",
    "license" : [
       "perl_5"
    ],
@@ -44,9 +44,9 @@
       "test" : {
          "requires" : {
             "Dancer::Test" : "0",
-            "File::Find" : "0",
             "File::Spec" : "0",
-            "File::Temp" : "0",
+            "IO::Handle" : "0",
+            "IPC::Open3" : "0",
             "Test::More" : "0"
          }
       }
@@ -54,7 +54,7 @@
    "provides" : {
       "Dancer::Plugin::MobileDevice" : {
          "file" : "lib/Dancer/Plugin/MobileDevice.pm",
-         "version" : "0.04"
+         "version" : "0.05"
       }
    },
    "release_status" : "stable",
@@ -67,6 +67,6 @@
          "url" : "https://github.com/PerlDancer/Dancer-Plugin-MobileDevice"
       }
    },
-   "version" : "0.04"
+   "version" : "0.05"
 }
 
